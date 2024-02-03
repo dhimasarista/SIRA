@@ -6,12 +6,9 @@ class Index{
     }
 
     main(){
+        // Mengalihkan halaman utama ke /daftar-anggota
         this.app.get("/", (req, res) => {
-            const path = "/daftar-anggota"
-            res.render("index", {
-                username: "dhimasarista",
-                path: path,
-            })
+            res.redirect("/daftar-anggota");
         })
     }
 }
