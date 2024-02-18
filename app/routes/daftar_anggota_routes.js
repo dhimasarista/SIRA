@@ -1,7 +1,6 @@
 class DaftarAnggota{
     constructor(app){
         this.app = app;
-
         this.main();
     }
 

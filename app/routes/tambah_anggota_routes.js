@@ -9,7 +9,13 @@ class TambahAnggota{
 
     main(){
         this.app.get("/tambah-anggota", (req, res) => {
-            internalServerError(res, "Halaman Belum Dibuat.")
+            const path = "/tambah-anggota"
+            const title = "Tambah Anggota"
+            res.render("tambah_anggota", {
+                username: "dhimasarista",
+                path: path,
+                title: title,
+            })
         })
     }
 }
