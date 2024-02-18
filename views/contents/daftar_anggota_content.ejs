@@ -18,52 +18,217 @@
 
     <!-- Main content -->
     <section class="content">
-    <div class="container-fluid">
-        <div class="row">
-        <div class="col-12">
-            <div class="card">
-            <!-- <div class="card-header">
-                <h3 class="card-title">DataTable with default features</h3>
-            </div> -->
-            <!-- /.card-header -->
-            <div class="card-body">
-                <table id="example1" class="table table-sm table-bordered table-striped" width="100%" cellspacing="0">
-                <thead>
-                <tr>
-                    <th>NIK</th>
-                    <th>Nama</th>
-                    <th>Alamat</th>
-                    <th></th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    <td>14049832749273</td>
-                    <td>Ujang</td>
-                    <td>Jl. Kenangan No. 1000 Distrik 899</td>
-                    <td class="text-center text-break">
-                        <a href="#" class="m-1">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"><path fill="currentColor" d="M15 11h7v2h-7zm1 4h6v2h-6zm-2-8h8v2h-8zM4 19h10v-1c0-2.757-2.243-5-5-5H7c-2.757 0-5 2.243-5 5v1zm4-7c1.995 0 3.5-1.505 3.5-3.5S9.995 5 8 5S4.5 6.505 4.5 8.5S6.005 12 8 12"/></svg>
-                        </a>
-                        <a href="#" class="m-1">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 32 32"><path fill="currentColor" d="M25 4.031c-.766 0-1.516.297-2.094.875L13 14.781l-.219.219l-.062.313l-.688 3.5l-.312 1.468l1.469-.312l3.5-.688l.312-.062l.219-.219l9.875-9.906A2.968 2.968 0 0 0 25 4.03zm0 1.938c.234 0 .465.12.688.343c.445.446.445.93 0 1.375L16 17.376l-1.719.344l.344-1.719l9.688-9.688c.222-.222.453-.343.687-.343zM4 8v20h20V14.812l-2 2V26H6V10h9.188l2-2z"/></svg>
-                        </a>
-                        <a href="#" class="m-1">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"><path fill="currentColor" d="M7 21q-.825 0-1.412-.587T5 19V6H4V4h5V3h6v1h5v2h-1v13q0 .825-.587 1.413T17 21zm2-4h2V8H9zm4 0h2V8h-2z"/></svg>
-                        </a>
+        <div id="daftar-anggota-card" class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                    <!-- <div class="card-header">
+                        <h3 class="card-title">DataTable with default features</h3>
+                    </div> -->
+                    <!-- /.card-header -->
+                    <div class="card-body">
+                        <table id="example1" class="table table-sm table-bordered table-striped" width="100%" cellspacing="0">
+                        <thead>
+                        <tr>
+                            <th>Nama</th>
+                            <th>NIK</th>
+                            <th>No. Anggota</th>
+                            <th>Alamat</th>
+                            <th></th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>Muhammad Dhimas Arista</td>
+                            <td>23897832749832</td>
+                            <td>14049832749273</td>
+                            <td>Jl. Kenangan No. 1000 Distrik 899</td>
+                            <td class="text-center text-break">
+                                <a href="#" class="m-1" onclick="tampilkanInformasiAnggota()">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"><path fill="currentColor" d="M15 11h7v2h-7zm1 4h6v2h-6zm-2-8h8v2h-8zM4 19h10v-1c0-2.757-2.243-5-5-5H7c-2.757 0-5 2.243-5 5v1zm4-7c1.995 0 3.5-1.505 3.5-3.5S9.995 5 8 5S4.5 6.505 4.5 8.5S6.005 12 8 12"/></svg>
+                                </a>
+                                <a href="#" class="m-1" onclick="editAnggota()">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 32 32"><path fill="currentColor" d="M25 4.031c-.766 0-1.516.297-2.094.875L13 14.781l-.219.219l-.062.313l-.688 3.5l-.312 1.468l1.469-.312l3.5-.688l.312-.062l.219-.219l9.875-9.906A2.968 2.968 0 0 0 25 4.03zm0 1.938c.234 0 .465.12.688.343c.445.446.445.93 0 1.375L16 17.376l-1.719.344l.344-1.719l9.688-9.688c.222-.222.453-.343.687-.343zM4 8v20h20V14.812l-2 2V26H6V10h9.188l2-2z"/></svg>
+                                </a>
+                                <a href="#" class="m-1">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"><path fill="currentColor" d="M7 21q-.825 0-1.412-.587T5 19V6H4V4h5V3h6v1h5v2h-1v13q0 .825-.587 1.413T17 21zm2-4h2V8H9zm4 0h2V8h-2z"/></svg>
+                                </a>
+                            </div>
+                        </td>
+                        </tr>
+                        </tbody>
+                        </table>
                     </div>
-                </td>
-                </tr>
-                </tbody>
-                </table>
+                    <!-- /.card-body -->
+                </div>
+                <!-- /.card -->
             </div>
-            <!-- /.card-body -->
+        </div>
+    </section>
+    <div id="edit-anggota-card" class="container-fluid" hidden>
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header row align-items-center">
+                        <div class="col"><b>Edit Anggota</b></div>
+                        <div class="col text-right">
+                            <button type="button" class="btn btn-sm btn-secondary" id="button-batalkan-edit">Batal</button>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <form>
+                            <div class="form-group">
+                                <label for="nik">NIK <small style="color: red;">*Wajib Diisi</small></label>
+                                <input type="text" class="form-control" id="nik" name="nik">
+                            </div>
+                            <div class="form-group">
+                                <label for="nama">Nama Lengkap <small style="color: red;">*Wajib Diisi</small></label>
+                                <input type="text" class="form-control" id="nama" name="nama">
+                            </div>
+                            <div class="form-group">
+                                <label for="gelar">Gelar</label>
+                                <input type="text" class="form-control" id="gelar" name="gelar">
+                            </div>
+                            <!-- tambahkan input untuk kota lahir, tgl lahir, agama, jenis kelamin, golongan darah, suku bangsa, status pernikahan, dll. -->
+                            <div class="form-group">
+                                <label for="tempat_lahir">Tempat Lahir</label>
+                                <input type="text" class="form-control" id="tempat_lahir" name="tempat_lahir">
+                            </div>
+                            <!-- Tanggal Lahir -->
+                            <div class="form-group">
+                            <label>Tanggal Lahir</label>
+                                <div class="input-group date" id="reservationdate" data-target-input="nearest">
+                                    <input type="text" class="form-control datetimepicker-input" data-target="#reservationdate"/>
+                                    <div class="input-group-append" data-target="#reservationdate" data-toggle="datetimepicker">
+                                        <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="foto_ktp">Foto KTP</label>
+                                <input type="file" class="form-control-file" id="foto_ktp" name="foto_ktp">
+                            </div>
+                            <div class="form-group">
+                                <label for="foto_pas">Foto Pas Photo</label>
+                                <input type="file" class="form-control-file" id="foto_pas" name="foto_pas">
+                            </div>
+                            <div class="form-group">
+                                <label for="alamat">Alamat</label>
+                                <textarea class="form-control" id="alamat" name="alamat" rows="3"></textarea>
+                            </div>
+                            <!-- tambahkan input untuk provinsi, kota, kecamatan, desa/kelurahan, rt, rw, dan kode pos -->
+                            <button type="submit" class="btn btn-primary" id="simpan-edit">Simpan</button>
+                        </form>
+                    </div>
+                </div>
             </div>
-            <!-- /.card -->
         </div>
-        <!-- /.col -->
+    </div>
+    <div id="informasi-anggota-card" class="container-fluid" hidden>
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header row align-items-center">
+                        <div class="col"><b>Informasi Anggota</b></div>
+                        <div class="col text-right">
+                            <button type="button" class="btn btn-sm btn-secondary" id="button-kembali">Kembali</button>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <table class="table table-sm table-bordered" width="100%" cellspacing="0">
+                            <tbody>
+                            <tr>
+                                <td>No. Anggota</td>
+                                <td>3297987329847324</td>
+                            </tr>
+                            <tr>
+                                <td>NIK</td>
+                                <td>3297987329847324</td>
+                            </tr>
+                            <tr>
+                                <td>Nama</td>
+                                <td>Ujang</td>
+                            </tr>
+                            <tr>
+                                <td>Gelar</td>
+                                <td>S.Kom</td>
+                            </tr>
+                            <tr>
+                                <td>Tempat/Tanggal Lahir</td>
+                                <td>Bengkalis, 01 Mei 2002</td>
+                            </tr>
+                            <tr>
+                                <td>Alamat</td>
+                                <td>Jl. Kenangan No. 2 RT 002 RW 022</td>
+                            </tr>
+                            <tr>
+                                <td>Foto</td>
+                                <td><a href="#">lihat</a></td>
+                            </tr>
+                            <tr>
+                                <td>Scan KTP</td>
+                                <td><a href="#">lihat</a></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
         </div>
-        <!-- /.row -->
+    </div>
+    <!-- /.col -->
+    <!-- /.row -->
     <!-- /.container-fluid -->
     </section>
 </div>
+<script>
+    // Card 
+    const daftarAnggotaCard = document.getElementById("daftar-anggota-card");
+    const editAnggotaCard = document.getElementById("edit-anggota-card");
+    const informasiAnggotaCard = document.getElementById("informasi-anggota-card");
+    // Button
+    const buttonKembali = document.getElementById("button-kembali");
+    const buttonBatalkanEdit = document.getElementById("button-batalkan-edit");
+    const simpanEdit = document.getElementById("simpan-edit");
+
+    // Event Menampilkan Informasi Anggota
+    function tampilkanInformasiAnggota() {
+        daftarAnggotaCard.setAttribute("hidden", true);
+        informasiAnggotaCard.removeAttribute("hidden");
+
+        return 1;
+    }
+
+    // Jika Button Kembali diKlik
+    buttonKembali.addEventListener("click", (e) => {
+        e.preventDefault();
+
+        // Maka tampilkan Daftar Anggota
+        daftarAnggotaCard.removeAttribute("hidden");
+        informasiAnggotaCard.setAttribute("hidden", true);
+    });
+
+    // Event Mengedit Anggota
+    function editAnggota() {
+        daftarAnggotaCard.setAttribute("hidden", true);
+        editAnggotaCard.removeAttribute("hidden");
+
+        return 1;
+    }
+
+    // Jika Button Batalkan edit diKlik
+    buttonBatalkanEdit.addEventListener("click", (e) => {
+        e.preventDefault();
+
+        // Maka tampilkan Daftar Anggota
+        daftarAnggotaCard.removeAttribute("hidden");
+        editAnggotaCard.setAttribute("hidden", true);
+    });
+
+    // Menyimpan hasil perubahan data anggota
+    simpanEdit.addEventListener("click", (e) => {
+        e.preventDefault();
+
+        window.location.reload();
+    })
+</script>
