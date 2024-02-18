@@ -6,6 +6,8 @@
     <%- include ("partials/navbar.ejs") %>
     <%- include ("partials/sidebar.ejs") %>
     <!-- Content Wrapper. Contains page content -->
+    <!-- Content Wrapper. Contains page content -->
+    <%- include ("contents/daftar_anggota_content.ejs") %>
     <script>
         $(function () {
             $("#example1").DataTable({
@@ -27,8 +29,6 @@
             }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
         });
     </script>
-    <!-- Content Wrapper. Contains page content -->
-    <%- include ("contents/daftar_anggota_content.ejs") %>
         <!-- /.content -->
     </div>
     <!-- /.content-wrapper -->
