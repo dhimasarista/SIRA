@@ -8,10 +8,11 @@ class ErrorRoutes{
     main(){
         this.app.get("/error", (req, res) => {
             const path = "/error";
-
+            const title = "Error Page"
             res.render("error_page", {
                 path: path,
-                username: "dhimasarista"
+                username: "dhimasarista",
+                title: title,
             })
         })
         this.app.get("/500", (req, res) => {

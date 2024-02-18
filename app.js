@@ -5,7 +5,7 @@ const path = require("path");
 const setupRoutes = require("./app/routes/routes");
 
 const app = express(); // Init Aplikasi
-const port = 9999; // Init Port
+const port = 1234; // Init Port
 const server = http.createServer(app); // Init Server
 
 // Middlewares & Routes
