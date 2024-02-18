@@ -1,0 +1,80 @@
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1>Tambah Anggota</h1>
+            </div>
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                <li class="breadcrumb-item"><a href="#">Home</a></li>
+                <li class="breadcrumb-item active">Tambah Anggota</li>
+                </ol>
+            </div>
+            </div>
+        </div><!-- /.container-fluid -->
+    </section>
+
+    <div class="content">
+        <div id="tambah-anggota-card" class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-header row align-items-center">
+                            <div class="col"><b>Anggota Baru</b></div>
+                            <div class="col text-right">
+                                <button type="button" class="btn btn-sm btn-secondary" id="button-batalkan-edit">Batal</button>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <form>
+                                <div class="form-group">
+                                    <label for="nik">NIK <small style="color: red;">*Wajib Diisi</small></label>
+                                    <input type="text" class="form-control" id="nik" name="nik">
+                                </div>
+                                <div class="form-group">
+                                    <label for="nama">Nama Lengkap <small style="color: red;">*Wajib Diisi</small></label>
+                                    <input type="text" class="form-control" id="nama" name="nama">
+                                </div>
+                                <div class="form-group">
+                                    <label for="gelar">Gelar</label>
+                                    <input type="text" class="form-control" id="gelar" name="gelar">
+                                </div>
+                                <!-- tambahkan input untuk kota lahir, tgl lahir, agama, jenis kelamin, golongan darah, suku bangsa, status pernikahan, dll. -->
+                                <div class="form-group">
+                                    <label for="tempat_lahir">Tempat Lahir</label>
+                                    <input type="text" class="form-control" id="tempat_lahir" name="tempat_lahir">
+                                </div>
+                                <!-- Tanggal Lahir -->
+                                <div class="form-group">
+                                <label>Tanggal Lahir</label>
+                                    <div class="input-group date" id="reservationdate" data-target-input="nearest">
+                                        <input type="text" class="form-control datetimepicker-input" data-target="#reservationdate"/>
+                                        <div class="input-group-append" data-target="#reservationdate" data-toggle="datetimepicker">
+                                            <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="foto_ktp">Foto KTP</label>
+                                    <input type="file" class="form-control-file" id="foto_ktp" name="foto_ktp">
+                                </div>
+                                <div class="form-group">
+                                    <label for="foto_pas">Foto Pas Photo</label>
+                                    <input type="file" class="form-control-file" id="foto_pas" name="foto_pas">
+                                </div>
+                                <div class="form-group">
+                                    <label for="alamat">Alamat</label>
+                                    <textarea class="form-control" id="alamat" name="alamat" rows="3"></textarea>
+                                </div>
+                                <!-- tambahkan input untuk provinsi, kota, kecamatan, desa/kelurahan, rt, rw, dan kode pos -->
+                                <button type="submit" class="btn btn-primary" id="simpan-edit">Simpan</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
