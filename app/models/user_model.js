@@ -5,10 +5,11 @@ class UserModel {
       // Kosongkan konstruktor karena tidak memerlukan inisialisasi khusus
     }
   
-    async addUser(username, anggotaId, isUser = false, isSuperuser = false) {
+    async addUser(username, anggotaId, password, isUser = false, isSuperuser = false) {
       try {
         const newUser = await knex('users').insert({
           username,
+          password,
           anggota_id: anggotaId,
           is_user: isUser,
           is_superuser: isSuperuser
