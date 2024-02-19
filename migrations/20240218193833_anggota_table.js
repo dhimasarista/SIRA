@@ -5,8 +5,8 @@
 exports.up = function(knex) {
     return knex.schema.createTable('keanggotaan', function(table) {
       table.increments('id').primary(); // Kolom ID sebagai primary key
-      table.integer('nik'); // Kolom NIK sebagai integer
-      table.integer('no_anggota'); // Kolom No. Anggota sebagai integer
+      table.string('nik'); // Kolom NIK sebagai integer
+      table.string('no_anggota'); // Kolom No. Anggota sebagai integer
       table.string('nama_lengkap'); // Kolom Nama Lengkap sebagai string
       table.string('gelar'); // Kolom Gelar sebagai string
       table.string('tempat_lahir'); // Kolom Tempat Lahir sebagai string

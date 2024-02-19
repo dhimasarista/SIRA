@@ -8,7 +8,9 @@ class Index{
     main(){
         // Mengalihkan halaman utama ke /daftar-anggota
         this.app.get("/", (req, res) => {
-            res.redirect("/daftar-anggota");
+            res.render("login", {
+                errors: [{}]
+            })
         })
     }
 }

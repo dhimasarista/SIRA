@@ -10,7 +10,7 @@
     <%- include ("contents/daftar_anggota_content.ejs") %>
     <script>
         $(function () {
-            $("#example1").DataTable({
+            $("#tabel_daftar_anggota").DataTable({
                 "responsive": true,
                 "lengthChange": true, // Setel menjadi true untuk menampilkan dropdown "Show entries"
                 "autoWidth": false,
@@ -19,14 +19,14 @@
                   "csv", 
                   "excel", 
                   "pdf", 
-                  "print", 
+                  "print",
                   // "colvis"
                 ],
                 "lengthMenu": [[10, 25, 50, 100], [10, 25, 50, 100]], // Atur opsi panjang halaman yang diinginkan
                 "paging": true,
                 "ordering": true,
                 "info": true,
-            }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+            }).buttons().container().appendTo('#tabel_daftar_anggota_wrapper .col-md-6:eq(0)');
         });
     </script>
         <!-- /.content -->
