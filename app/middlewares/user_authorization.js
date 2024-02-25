@@ -1,14 +1,27 @@
-const userAuth = app => {
+const userAuthorization = app => {
     app.use((req, res, next) => {
         try {
-            const user = req.cookies.user;
+            const session = req.session;
+            const user = session.user;
             const currentPath = req.originalUrl;
 
-            if (user && currentPath === "/") {
-                return res.redirect("/daftar-anggota")
+            if (currentPath === "/") {
+                return next();
             }
+
+            if (currentPath === "/logout") {
+                return next();
+            }
+
+            // Jika user belum login, alihkan ke halaman login
+            if (!user && currentPath !== "/login") {
+                return res.redirect("/login")
+            }
+            next();
         } catch (error) {
-            throw error;
+            console.log(error);
         }
     })
 }
+
+module.exports = userAuthorization;

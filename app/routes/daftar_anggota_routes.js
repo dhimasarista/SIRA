@@ -13,11 +13,11 @@ class DaftarAnggota{
         this.app.get("/daftar-anggota", async (req, res) => {
             const path = "/daftar-anggota";
             const title = "Daftar Anggota";
-
+            const username = req.session.user.username;
             // Mengambil data anggota
             const dataAnggota = await anggota.findAll();
             res.render("daftar_anggota", {
-                username: "dhimasarista",
+                username: username,
                 path: path,
                 title: title,
                 anggota:dataAnggota,

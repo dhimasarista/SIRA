@@ -6,7 +6,7 @@ exports.up = function(knex) {
     return knex.schema.createTable('users', function(table) {
       table.increments('id').primary(); // Kolom ID sebagai primary key
       table.string('username').unique(); // Kolom Username sebagai string unik
-      table.string('passowrd').unique();
+      table.string('password').unique();
       table.integer('anggota_id').unsigned(); // Kolom anggota_id sebagai integer unsigned
       table.foreign('anggota_id').references('id').inTable('keanggotaan'); // Kunci asing ke tabel anggota
       table.boolean('is_user').defaultTo(true); // Kolom is_user sebagai boolean default true

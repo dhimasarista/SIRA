@@ -31,7 +31,7 @@
                             <form>
                                 <div class="form-group">
                                     <label for="nik">NIK <small style="color: red;">*Wajib Diisi</small></label>
-                                    <input type="text" class="form-control" id="nik" name="nik">
+                                    <input type="number" class="form-control" id="nik" name="nik">
                                 </div>
                                 <div class="form-group">
                                     <label for="nama">Nama Lengkap <small style="color: red;">*Wajib Diisi</small></label>
@@ -57,11 +57,11 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label for="foto-ktp">Foto KTP</label>
-                                    <input type="file" class="form-control-file" id="foto-ktp" name="foto_ktp">
+                                    <label for="foto-ktp">Foto KTP <small style="color: red;">*JPEG/JPG/PNG</small></label>
+                                    <input type="file" class="form-control-file" id="foto-ktp" name="foto-ktp">
                                 </div>
                                 <div class="form-group">
-                                    <label for="pas-foto">Foto Pas Photo</label>
+                                    <label for="pas-foto">Foto Pas Photo <small style="color: red;">*JPEG/JPG/PNG</small></label>
                                     <input type="file" class="form-control-file" id="pas-foto" name="foto_pas">
                                 </div>
                                 <div class="form-group">
@@ -88,6 +88,29 @@
     const alamat = document.getElementById("alamat");
     const foto = document.getElementById("pas-foto");
     const ktp = document.getElementById("foto-ktp");
+    // Upload File
+    function UploadFile(file, dataname, path) {
+        const formData = new FormData();
+        formData.append(dataname, file);
+        formData.append("filename", file.name);
+        try {
+            fetch(path, {
+                method: "POST",
+                body: formData,
+            })
+        } catch (error) {
+            Swal.fire("Error", error.message, "error");
+            console.error(error);
+        }
+    }
+
+    ktp.addEventListener("change", (e) => {
+        e.preventDefault();
+        // Memeriksa Jenis File
+        checkFileType(ktp.files[0], ["image/jpeg", "image/jpg", "image/png"], "format file tidak didukung! (JPEG/JPG/PNG)", ktp);
+        // Jika file di acc
+        UploadFile(ktp.files[0], "image", "/upload/image");
+    });
 
     // Button menyimpan data baru
     document.getElementById("simpan-anggota-baru").addEventListener("click", (e) => {
@@ -101,7 +124,7 @@
             tanggal_lahir: tanggalLahir.value,
             alamat: alamat.value,
             foto: foto.value,
-            ktp: ktp.value,
+            ktp: ktp.files[0] === undefined ? null : ktp.files[0].name,
         }
         Swal.fire({
             title: "Apakah data sudah benar?",
@@ -122,7 +145,6 @@
                 })
                 .then(response => response.json())
                 .then(results => {
-                    console.log(results);
                     if (results.status !== 200) {
                         Swal.fire({
                             title: "Error!",
@@ -133,13 +155,13 @@
                     }
                     Swal.fire({
                         title: "Data Tersimpan!",
-                        text: results.message,
-                        icon: "success"
-                    }).then((result) => {
-                        if (result.isConfirmed) {
-                            window.location.reload();
-                        }
+                        html: `pesan: <b>${results.message}</b>`,
+                        timer: 1000,
+                        timerProgressBar: true,
+                        icon: "success",
+                        showConfirmButton: false
                     });
+                    bersihkanKolomInput();
                 })
                 .catch(error =>{
                     console.log(error)
@@ -171,6 +193,6 @@
                 bersihkanKolomInput();
             }
         });
-    })
+    });
 
 </script>
