@@ -57,12 +57,27 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label for="foto-ktp">Foto KTP <small style="color: red;">*JPEG/JPG/PNG</small></label>
-                                    <input type="file" class="form-control-file" id="foto-ktp" name="foto-ktp">
-                                </div>
-                                <div class="form-group">
                                     <label for="pas-foto">Foto Pas Photo <small style="color: red;">*JPEG/JPG/PNG</small></label>
                                     <input type="file" class="form-control-file" id="pas-foto" name="foto_pas">
+                                    <div id="delete-foto" hidden>
+                                        <a href="#"  class="px-1 badge badge-danger" id="button-delete-foto">
+                                            <i>
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"><path fill="currentColor" d="M7 21q-.825 0-1.412-.587T5 19V6H4V4h5V3h6v1h5v2h-1v13q0 .825-.587 1.413T17 21H7Zm2-4h2V8H9v9Zm4 0h2V8h-2v9Z"/></svg>
+                                            </i>
+                                        </a>
+                                        <span id="foto-filename"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label for="foto-ktp">Foto KTP <small style="color: red;">*JPEG/JPG/PNG</small></label>
+                                    <input type="file" class="form-control-file" id="foto-ktp" name="foto-ktp">
+                                    <div id="delete-ktp" hidden>
+                                        <a href="#"  class="px-1 badge badge-danger" id="button-delete-ktp">
+                                            <i>
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"><path fill="currentColor" d="M7 21q-.825 0-1.412-.587T5 19V6H4V4h5V3h6v1h5v2h-1v13q0 .825-.587 1.413T17 21H7Zm2-4h2V8H9v9Zm4 0h2V8h-2v9Z"/></svg>
+                                            </i>
+                                        </a>
+                                        <span id="ktp-filename"></span>
+                                    </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="alamat">Alamat</label>
@@ -103,14 +118,59 @@
             console.error(error);
         }
     }
-
+    // Handling Delete Image
+    function DeleteImage(filename) {
+        fetch(`/delete/image/${filename}`)
+        .then(response => response.json())
+        .then(results => {
+            if (results.status !== 200) {
+                Swal.fire({
+                    title: "Error!",
+                    text: results.message,
+                    icon: "warning"
+                })
+                return 0;
+            }
+            Swal.fire({
+                title: "Sukses",
+                html: `pesan: <b>${results.message}</b>`,
+                timer: 1000,
+                timerProgressBar: true,
+                icon: "success",
+                showConfirmButton: false
+            });
+        })
+    }
+    const deleteKtp = document.getElementById("delete-ktp");
+    const buttonDeleteKtp = document.getElementById("button-delete-ktp");
+    const ktpFilename = document.getElementById("ktp-filename");
     ktp.addEventListener("change", (e) => {
         e.preventDefault();
         // Memeriksa Jenis File
         checkFileType(ktp.files[0], ["image/jpeg", "image/jpg", "image/png"], "format file tidak didukung! (JPEG/JPG/PNG)", ktp);
+        // Memeriksa Ukuran File
+        checkFileSize(ktp);
         // Jika file di acc
         UploadFile(ktp.files[0], "image", "/upload/image");
+        //
+        ktp.setAttribute("hidden", true);
+        deleteKtp.removeAttribute("hidden");
+        ktpFilename.innerText = ktp.files[0].name;
     });
+    buttonDeleteKtp.addEventListener("click", (e) => {
+        e.preventDefault();
+        DeleteImage(ktp.files[0].name);
+        ktp.removeAttribute("hidden");
+        ktp.value = "";
+        deleteKtp.setAttribute("hidden", true);
+    })
+    foto.addEventListener("change", (e) => {
+        e.preventDefault();
+        // Memeriksa Jenis File
+        checkFileType(foto.files[0], ["image/jpeg", "image/jpg", "image/png"], "format file tidak didukung! (JPEG/JPG/PNG)", ktp);
+        // Jika file di acc
+        UploadFile(foto.files[0], "image", "/upload/image");
+    })
 
     // Button menyimpan data baru
     document.getElementById("simpan-anggota-baru").addEventListener("click", (e) => {
@@ -123,7 +183,7 @@
             tempat_lahir: tempatLahir.value,
             tanggal_lahir: tanggalLahir.value,
             alamat: alamat.value,
-            foto: foto.value,
+            foto: foto.files[0] === undefined ? null : foto.files[0].name,
             ktp: ktp.files[0] === undefined ? null : ktp.files[0].name,
         }
         Swal.fire({

@@ -30,6 +30,6 @@ app.use((req, res, next) => {
 // Running Aplikasi
 server.listen(port, function() {
     console.clear(); // Membersihkan Console
-    console.log(`PID [${process.pid}]`);
-    console.log(`Server started on http://localhost:${port}`)
+    // console.log(`PID [${process.pid}]`);
+    console.log(`🖤 Server started on http://localhost:${port}`)
 });

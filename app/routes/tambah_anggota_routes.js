@@ -33,14 +33,14 @@ class TambahAnggota {
 
             // Membaca data gambar dari file
             let fileKTP = null;
-            if (ktp !== undefined) {
+            if (ktp !== null) {
                 const imagePath = path.join('./app/uploads/after/', ktp);
                 if (fs.existsSync(imagePath) && fs.lstatSync(imagePath).isFile()) {
                     fileKTP = fs.readFileSync(imagePath);
                 }
             }
             let fileFoto = null;
-            if (foto !== undefined) {
+            if (foto !== null) {
                 const imagePath = path.join('./app/uploads/after/', foto);
                 if (fs.existsSync(imagePath) && fs.lstatSync(imagePath).isFile()) {
                     fileFoto = fs.readFileSync(imagePath);
@@ -72,8 +72,8 @@ class TambahAnggota {
                     status: 200,
                     message: "Anggota baru ditambahkan."
                 });
-                await deleteImage(ktp);
-                await deleteImage(foto);
+                deleteImage(ktp);
+                deleteImage(foto);
             } catch (error) {
                 console.error("Error:", error);
                 res.status(500).json({

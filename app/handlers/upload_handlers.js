@@ -5,7 +5,7 @@ const path = require("path");
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
         if (file.mimetype.startsWith("image/")) {
-            cb(null, "app/uploads/before/")
+            cb(null, "app/uploads/images/")
         } else if (file.mimetype === "application/pdf") {
             cb(null, "app/uploads/pdf")
         } else {
@@ -24,22 +24,12 @@ function deleteImage(fileName) {
     if (fileName === null) {
         return 0;
     }
-    const imagePathAfter = path.join(__dirname, "../uploads/after", fileName);
-    const imagePathBefore = path.join(__dirname, "../uploads/before", fileName);
+    const imagePath = path.join(__dirname, "../uploads/images", fileName);
     // Pengecekan apakah file ada sebelum mencoba menghapusnya
-    if (fs.existsSync(imagePathAfter)) {
-        fs.unlink(imagePathAfter, (err) => {
+    if (fs.existsSync(imagePath)) {
+        fs.unlink(imagePath, (err) => {
             if (err) {
                 console.log("Error deleting after image: " + err);
-            }
-        });
-    }
-
-    // Pengecekan apakah file ada sebelum mencoba menghapusnya
-    if (fs.existsSync(imagePathBefore)) {
-        fs.unlink(imagePathBefore, (err) => {
-            if (err) {
-                console.log("Error deleting before image: " + err);
             }
         });
     }

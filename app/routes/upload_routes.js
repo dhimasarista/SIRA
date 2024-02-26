@@ -12,11 +12,9 @@ class Upload{
         this.app.post("/upload/image", upload.single("image"), (req, res) => {
             const filename = req.body;
             try {
-                console.log(filename.filename);
+                // console.log(filename.filename);
                 // Setelah mengupload image
                 res.status(200).send(`Image success uploaded.`);
-                // Compress Image
-                compressImage(filename.filename);
             } catch (error) {
                 return res.status(500).send(error);
             }
@@ -26,9 +24,15 @@ class Upload{
             const filename = req.params.filename;
             try {
                 deleteImage(filename);
-                return res.status(200).send(`Image ${filename} has been deleted from server.`);
+                return res.json({
+                    status: 200,
+                    message: `Image ${filename} has been deleted from server.`
+                });
             } catch (error) {
-                return res.status(500).send(`Error deleteing ${filename} from server.`);
+                return res.json({
+                    status: 500,
+                    message: `Error deleteing ${filename} from server.`
+                });
             }
         })
     }
